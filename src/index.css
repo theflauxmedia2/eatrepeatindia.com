@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Eat Repeat Luxury Design System - Premium colors, fonts, and effects */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Based on Eat Repeat Logo */
+    --background: 0 0% 100%;
+    --foreground: 20 14% 15%;
+    
+    /* Primary brand colors from logo - Orange infinity symbol */
+    --primary: 22 85% 58%;  /* Logo orange */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 22 85% 48%;
+    
+    /* Secondary colors inspired by logo */
+    --secondary: 25 35% 94%;  /* Soft cream background */
+    --secondary-foreground: 20 14% 15%;
+    
+    /* Accent red from "EAT REPEAT" text */
+    --accent: 355 85% 55%;  /* Logo red */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Elegant neutrals */
+    --muted: 30 15% 95%;
+    --muted-foreground: 20 14% 45%;
+    
+    --border: 25 20% 90%;
+    --input: 25 20% 88%;
+    --ring: 22 85% 58%;
+    
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 15%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Premium spacing and effects */
+    --radius: 0.75rem;
+    
+    /* Luxury gradients - Logo inspired */
+    --gradient-hero: linear-gradient(135deg, hsl(22 85% 58%) 0%, hsl(355 85% 55%) 50%, hsl(22 85% 48%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(25 35% 97%) 100%);
+    --gradient-overlay: linear-gradient(135deg, hsl(20 14% 15% / 0.8) 0%, hsl(22 85% 58% / 0.6) 100%);
+    
+    /* Elegant shadows using logo colors */
+    --shadow-luxury: 0 25px 50px -12px hsl(22 85% 58% / 0.15);
+    --shadow-elegant: 0 10px 30px -10px hsl(20 14% 15% / 0.1);
+    --shadow-hover: 0 20px 40px -8px hsl(22 85% 58% / 0.25);
+    
+    /* Smooth transitions */
+    --transition-elegant: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  /* Premium Typography */
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-display-italic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-lg shadow-luxury transition-elegant hover:shadow-hover hover:scale-105 font-medium tracking-wide;
+  }
+  
+  .btn-elegant {
+    @apply bg-white border-2 border-primary text-primary px-8 py-4 rounded-lg shadow-elegant transition-elegant hover:bg-primary hover:text-white hover:shadow-hover font-medium tracking-wide;
+  }
+  
+  /* Smooth Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-hover;
+  }
+  
+  .hover-glow {
+    @apply transition-elegant hover:shadow-luxury;
+  }
+}
+
+@layer utilities {
+  /* Custom Gradients */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  .bg-gradient-overlay {
+    background: var(--gradient-overlay);
+  }
+  
+  /* Custom Shadows */
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Smooth Transitions */
+  .transition-elegant {
+    transition: var(--transition-elegant);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
