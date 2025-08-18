@@ -104,11 +104,17 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			transitionDelay: {
+				'1000': '1000ms',
+				'2000': '2000ms',
+				'3000': '3000ms'
 			}
 		}
 	},

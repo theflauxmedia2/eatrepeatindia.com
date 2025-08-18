@@ -42,7 +42,6 @@ const ContactMap = () => {
           <div class="p-3">
             <h3 class="font-semibold text-lg mb-2">Eat Repeat</h3>
             <p class="text-sm text-gray-600 mb-2">LIC Colony, 17/17, 24th Main Rd<br/>TMC Layout, 1st Phase, J. P. Nagar<br/>Bengaluru, Karnataka 560078</p>
-            <p class="text-sm"><strong>Phone:</strong> +91 8951472076</p>
             <p class="text-sm"><strong>Email:</strong> marketingeatrepeatindia@gmail.com</p>
           </div>
         `);

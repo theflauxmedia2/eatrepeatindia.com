@@ -7,42 +7,57 @@ const brandsData = [
   {
     id: 'stories',
     name: 'STORIES',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80',
+    image: '/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.png',
+    logo: '/brands/stbar.png',
     description: 'Narrative dining where every dish tells a story',
     category: 'Fine Dining'
   },
   {
     id: 'macaw',
     name: 'MACAW',
-    image: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80',
+    image: '/lovable-uploads/160747a9-f9b5-4810-bbd3-bb3fefe35b3a.png',
+    logo: '/brands/macaw.png',
     description: 'Vibrant flavors inspired by exotic cuisines',
     category: 'Bar and Kitchen'
   },
   {
     id: 'moai',
     name: 'MOAI',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80',
+    image: '/lovable-uploads/361129d3-46c0-4f9a-96ca-8bb5f84214bc.png',
+    logo: '/brands/moai.png',
     description: 'Ancient wisdom meets modern culinary artistry',
     category: 'Casual Dining'
   },
-  // {
-  //   id: 'mohr',
-  //   name: 'MOHR',
-  //   image: 'https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=600&q=80',
-  //   description: 'Bold flavors in an industrial-chic setting',
-  //   category: 'Bar & Grill'
-  // },
-  // {
-  //   id: 'mezera',
-  //   name: 'MEZERA',
-  //   image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80',
-  //   description: 'Mediterranean soul food with contemporary flair',
-  //   category: 'Mediterranean'
-  // },
+  // New current brand
+  {
+    id: 'stories-2-0',
+    name: 'Stories 2.0',
+    image: '/hero_slider/5.png',
+    logo: '/brands/st2lg.png',
+    description: 'Next chapter in experiential dining with elevated storytelling',
+    category: 'Experiential Dining'
+  },
+  {
+    id: 'mohr',
+    name: 'MOHR',
+    image: '/lovable-uploads/75de3188-a5b4-4a9c-a48e-1d039e16b05a.png',
+    logo: '/brands/mohr.png',
+    description: 'Bold flavors in an industrial-chic setting',
+    category: 'Bar & Grill'
+  },
+  {
+    id: 'mezera',
+    name: 'MEZERA',
+    image: '/lovable-uploads/8b3ee734-2320-4b21-adfe-da2d82ec54ed.png',
+    logo: '/brands/mezera.png',
+    description: 'Mediterranean soul food with contemporary flair',
+    category: 'Mediterranean'
+  },
   {
     id: 'dr-sheesha',
     name: 'Dr Sheesha',
     image: '/lovable-uploads/8b3ee734-2320-4b21-adfe-da2d82ec54ed.png',
+    logo: '/brands/drsheesha.png',
     description: 'Premium sheesha lounge with global influences',
     category: 'Lounge'
   },
@@ -50,12 +65,16 @@ const brandsData = [
     id: 'the-black-perl',
     name: 'The Black Perl',
     image: '/lovable-uploads/tbp1.png',
+    logo: '/brands/tbp.png',
     description: 'Mysterious and sophisticated cocktail experience',
     category: 'Cocktail Bar'
   }
 ];
 
 const Brands = () => {
+  const visibleBrands = brandsData.filter((b) => b.id !== 'mohr' && b.id !== 'mezera');
+  const upcomingProjects = brandsData.filter((b) => b.id === 'mohr' || b.id === 'mezera');
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -77,10 +96,9 @@ const Brands = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Improved Grid Layout */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {brandsData.map((brand, index) => (
-              <Link
+            {visibleBrands.map((brand) => (
+              <div
                 key={brand.id}
-                to={`/brands/${brand.id}`}
                 className="group hover-lift transition-elegant rounded-2xl shadow-elegant overflow-hidden group-hover:shadow-hover"
               >
                 <div className="bg-white h-full flex flex-col">
@@ -103,23 +121,62 @@ const Brands = () => {
                   
                   {/* Content */}
                   <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors">
-                      {brand.name}
-                    </h3>
-                    <p className="font-body text-sm sm:text-base text-muted-foreground leading-relaxed flex-1 mb-3 sm:mb-4">
+                    {/* Brand Logo */}
+                    <div className="mb-4 sm:mb-6">
+                      <img 
+                        src={brand.logo}
+                        alt={brand.name}
+                        className="h-12 sm:h-16 w-auto object-contain"
+                      />
+                    </div>
+                    <p className="font-body text-sm sm:text-base text-muted-foreground leading-relaxed flex-1">
                       {brand.description}
                     </p>
-                    
-                    {/* Learn More Link */}
-                    <div className="flex items-center text-primary font-body font-medium mt-auto text-sm sm:text-base">
-                      <span className="group-hover:mr-2 transition-all">Learn More</span>
-                      <span className="transform translate-x-0 group-hover:translate-x-2 transition-transform">→</span>
-                    </div>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
+
+          {/* Upcoming Projects */}
+          {upcomingProjects.length > 0 && (
+            <div className="mt-16 sm:mt-20 lg:mt-24">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
+                  Upcoming <span className="font-display-italic text-primary">Projects</span>
+                </h2>
+                <p className="font-body text-muted-foreground max-w-2xl mx-auto mt-3">
+                  A glimpse into what we’re building next. Stay tuned.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+                {upcomingProjects.map((brand) => (
+                  <div key={brand.id} className="rounded-2xl overflow-hidden shadow-elegant bg-white group">
+                    <div className="relative">
+                      <img
+                        src={brand.image}
+                        alt={brand.name}
+                        className="w-full h-56 sm:h-64 lg:h-72 object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/40" />
+                      <div className="absolute top-3 left-3">
+                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/90 text-primary">Coming Soon</span>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/60 to-transparent">
+                        <div className="flex items-center gap-3">
+                          <img src={brand.logo} alt={`${brand.name} logo`} className="h-10 sm:h-12 w-auto object-contain filter invert brightness-0" />
+                          <div>
+                            <h3 className="font-display text-white text-lg sm:text-xl font-semibold">{brand.name}</h3>
+                            <p className="font-body text-white/80 text-xs sm:text-sm">{brand.category}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Call to Action */}
           <div className="text-center mt-12 sm:mt-16 pt-12 sm:pt-16 border-t border-border">

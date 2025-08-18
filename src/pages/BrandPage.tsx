@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, MapPin, Clock, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, Mail } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -26,7 +26,7 @@ const brandsData = {
 
     Whether you're celebrating a special occasion or simply seeking an unforgettable evening, Stories creates memories that last a lifetime.`,
     address: '123 Culinary Avenue, Downtown District',
-    phone: '+1 (555) 123-4567',
+    // phone removed
     email: 'reservations@storiesrestaurant.com',
     hours: {
       'Monday': '12:00 - 01:00',
@@ -58,7 +58,7 @@ const brandsData = {
 
     Every order is a journey to distant lands, crafted with authentic ingredients and modern culinary techniques.`,
     address: 'Delivery Only - City Center',
-    phone: '+1 (555) 234-5678',
+    // phone removed
     email: 'orders@macawkitchen.com',
     hours: {
       'Monday': '12:00 - 01:00',
@@ -89,7 +89,7 @@ const brandsData = {
 
     Step into our modern space where traditional Indian vegetarian cuisine meets contemporary presentation and flavors, creating an unforgettable dining experience that proves vegetarian food can be extraordinary.`,
     address: 'LIC Colony, 17/17, 24th Main Rd, TMC Layout, 1st Phase, J. P. Nagar, Bengaluru, Karnataka 560078',
-    phone: '+91 8951472076',
+    // phone removed
     email: 'marketingeatrepeatindia@gmail.com',
     hours: {
       'Monday': '12:00 - 01:00',
@@ -121,7 +121,7 @@ const brandsData = {
 
     Whether you're unwinding after a long day or celebrating with friends, Dr Sheesha delivers an unparalleled lounge experience.`,
     address: '654 Entertainment Avenue, Entertainment District',
-    phone: '+1 (555) 678-9012',
+    // phone removed
     email: 'bookings@drsheesha.com',
     hours: {
       'Monday': '12:00 - 01:00',
@@ -153,7 +153,7 @@ const brandsData = {
 
     Step into our dimly lit sanctuary and discover why The Black Perl has become the city's most coveted cocktail destination.`,
     address: '987 Historic Lane, Historic Quarter',
-    phone: '+1 (555) 789-0123',
+    // phone removed
     email: 'reservations@blackperl.com',
     hours: {
       'Monday': '12:00 - 01:00',
@@ -290,10 +290,7 @@ const BrandPage = () => {
                     <p className="font-body text-sm sm:text-base text-muted-foreground">{brand.address}</p>
                   </div>
                   
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
-                    <p className="font-body text-sm sm:text-base text-muted-foreground">{brand.phone}</p>
-                  </div>
+                  {/* Phone removed as per email-only policy */}
                   
                   <div className="flex items-center gap-3">
                     <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
