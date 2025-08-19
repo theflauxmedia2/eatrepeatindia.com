@@ -12,7 +12,10 @@ const CoreTeam = () => {
       designation: "Chairman & CEO",
       image: "/team/neral.png",
       isCEO: true,
-      objectPosition: 'center 20%'
+      objectPosition: 'center 20%',
+      scale : 1.3,
+      offsetY: 20,
+      offsetX: 1
     },
     {
       name: "Akash Agarwal",
@@ -43,16 +46,13 @@ const CoreTeam = () => {
       designation: "Director, Infrastructure",
       image: "/team/manish.png",
       isCEO: false,
-      objectPosition: 'center 30%',
-      scale: 2.5,
-      offsetY: 75
+      objectPosition: 'center 30%'
     },
     {
       name: "Dhiraj Kumar",
       designation: "Director, Strategy",
       image: "/team/dhiraj.png",
       isCEO: false,
-      objectPosition: 'center 20%'
     }
   ];
 
@@ -95,7 +95,7 @@ const CoreTeam = () => {
                         className="w-full h-full object-cover"
                         style={{
                           objectPosition: (ceo as any).objectPosition || 'center',
-                          transform: `translateY(${(ceo as any).offsetY || 0}%) scale(${(ceo as any).scale || 1})`,
+                          transform: `translateX(${(ceo as any).offsetX || 0}%) translateY(${(ceo as any).offsetY || 0}%) scale(${(ceo as any).scale || 1})`,
                           transformOrigin: 'center'
                         }}
                       />
@@ -142,7 +142,7 @@ const CoreTeam = () => {
                             className="w-full h-full object-cover"
                             style={{
                               objectPosition: (director as any).objectPosition || 'center',
-                              transform: `translateY(${(director as any).offsetY || 0}%) scale(${(director as any).scale || 1})`,
+                              transform: `translateX(${(director as any).offsetX || 0}%) translateY(${(director as any).offsetY || 0}%) scale(${(director as any).scale || 1})`,
                               transformOrigin: 'center'
                             }}
                           />

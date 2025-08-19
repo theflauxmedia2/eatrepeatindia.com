@@ -1,13 +1,11 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+ 
 
 const GalleryPreview = () => {
   const previewImages = [
     {
       id: 1,
-      src: "/lovable-uploads/e3f1d159-7e01-4ea2-8682-c2d50c66650b.png",
+      src: "/oth/stbr.webp",
       alt: "Fine Dining"
     },
     {
@@ -17,17 +15,17 @@ const GalleryPreview = () => {
     },
     {
       id: 3,
-      src: "/lovable-uploads/tbp1.png",
-      alt: "The Black Perl"
+      src: "/lovable-uploads/vision.JPG",
+      alt: "Vibe"
     },
     {
       id: 4,
-      src: "/lovable-uploads/1a870a73-de94-4bfe-8493-9d3702b1ede3.png",
-      alt: "Scenery"
+      src: "/hero_slider/4.png",
+      alt: "Ambiance"
     },
     {
       id: 5,
-      src: "/lovable-uploads/1e3842c9-cdaa-4eaf-b8c9-9e32600b74cc.png",
+      src: "/moai/2.jpg",
       alt: "Moai"
     },
     {
@@ -42,8 +40,8 @@ const GalleryPreview = () => {
     },
     {
       id: 8,
-      src: "/lovable-uploads/361129d3-46c0-4f9a-96ca-8bb5f84214bc.png",
-      alt: "World Class Experience"
+      src: "/tbc/3.jpg",
+      alt: "The Black Pearl"
     }
   ];
 
@@ -81,14 +79,7 @@ const GalleryPreview = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <Link to="/gallery">
-            <Button className="btn-elegant text-base px-8 py-4 font-body group">
-              View All Outlets
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </Link>
-        </div>
+        
       </div>
     </section>
   );

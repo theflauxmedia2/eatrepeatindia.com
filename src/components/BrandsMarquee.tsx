@@ -72,13 +72,6 @@ const brands = [
     logo: '/brands/st2lg.png',
     alt: 'Stories2.0 Brand Logo',
     path: '/brands'
-  },
-  {
-    id: 'eat-repeat',
-    name: 'Eat Repeat',
-    logo: '/lovable-uploads/bd9a7918-b91d-45a2-a95c-cb3547248741.png',
-    alt: 'Eat Repeat Logo',
-    path: '/'
   }
 ];
 
@@ -86,6 +79,22 @@ const BrandsMarquee = () => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const getBrandPadding = (id: string) => {
+    switch (id) {
+      case 'mohr':
+      case 'dr-sheesha':
+        // Decrease perceived size with more padding
+        return 'p-4 sm:p-5 md:p-6 lg:p-6';
+      case 'Stories2.0':
+      case 'moai':
+      case 'black-perl':
+        // Increase perceived size with less padding
+        return 'p-1 sm:p-2 md:p-3 lg:p-4';
+      default:
+        return '';
+    }
+  };
 
   // Create a seamless loop by duplicating the brands array
   const loopedBrands = [...brands, ...brands];
@@ -152,7 +161,7 @@ const BrandsMarquee = () => {
               >
                 <div className="relative">
                   {/* Logo Container - Fixed size for consistency */}
-                  <div className="w-28 sm:w-36 md:w-48 lg:w-56 h-20 sm:h-24 md:h-28 lg:h-32 flex items-center justify-center transition-elegant p-2 sm:p-3 md:p-4 lg:p-5">
+                  <div className={`w-28 sm:w-36 md:w-48 lg:w-56 h-20 sm:h-24 md:h-28 lg:h-32 flex items-center justify-center transition-elegant ${getBrandPadding(brand.id) || 'p-2 sm:p-3 md:p-4 lg:p-5'}`}>
                     <img
                       src={brand.logo}
                       alt={brand.alt}

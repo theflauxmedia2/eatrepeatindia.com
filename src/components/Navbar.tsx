@@ -22,7 +22,6 @@ const Navbar = () => {
     { name: 'Leadership', path: '/core-team' },
     { name: 'About Us', path: '/about-us' },
     { name: 'Awards', path: '/awards' },
-    { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
   ];
 

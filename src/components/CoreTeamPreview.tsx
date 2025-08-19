@@ -41,16 +41,12 @@ const CoreTeamPreview = () => {
       designation: "Director, Infrastructure",
       image: "/team/manish.png", // Replace with actual image
       isCEO: false,
-      objectPosition: 'center 30%',
-      scale: 2.5,
-      offsetY: 75
     },
     {
       name: "Dhiraj Kumar",
       designation: "Director, Strategy",
       image: "/team/dhiraj.png",
-      isCEO: false,
-      objectPosition: 'center 20%',
+      isCEO: false
     }
   ];
 
@@ -115,7 +111,7 @@ const CoreTeamPreview = () => {
         </div>
 
         <div className="relative mb-12">
-          <div className="overflow-hidden px-2">
+          <div className="overflow-x-hidden overflow-y-visible px-2 pt-3 sm:pt-5">
             <div
               ref={trackRef}
               className="flex gap-4"

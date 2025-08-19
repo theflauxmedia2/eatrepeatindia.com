@@ -120,11 +120,13 @@ const BrandsCarousel = () => {
               <div className="absolute inset-0 z-20 p-4 sm:p-6 md:p-8 flex flex-col justify-between">
                 <div>
                   <div className="mb-3 sm:mb-4 md:mb-6 inline-flex items-center justify-center rounded-2xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <img 
-                      src={currentBrand.logo}
-                      alt={currentBrand.name}
-                      className="h-16 sm:h-20 md:h-24 lg:h-32 w-auto object-contain brightness-0 invert"
-                    />
+                    <div className="w-40 sm:w-48 md:w-56 lg:w-64 h-16 sm:h-20 md:h-24 lg:h-28 flex items-center justify-center">
+                      <img 
+                        src={currentBrand.logo}
+                        alt={currentBrand.name}
+                        className="max-h-full max-w-full object-contain brightness-0 invert"
+                      />
+                    </div>
                   </div>
                   <p className="font-body text-sm sm:text-lg md:text-xl text-white mb-1 sm:mb-2 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-300 ease-out delay-100">
                     {currentBrand.description}
@@ -170,11 +172,13 @@ const BrandsCarousel = () => {
                 <div className="absolute inset-0 z-20 p-6 flex flex-col justify-between">
                   <div>
                     <div className="mb-4 inline-flex items-center justify-center rounded-2xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                      <img 
-                        src={brand.logo}
-                        alt={brand.name}
-                        className="h-20 w-auto object-contain brightness-0 invert"
-                      />
+                      <div className="w-48 h-20 flex items-center justify-center">
+                        <img 
+                          src={brand.logo}
+                          alt={brand.name}
+                          className="max-h-full max-w-full object-contain brightness-0 invert"
+                        />
+                      </div>
                     </div>
                     <p className="font-body text-lg text-white mb-2 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-300 ease-out delay-100">
                       {brand.description}

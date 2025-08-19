@@ -8,7 +8,6 @@ const Footer = () => {
     { name: 'Our Brands', path: '/brands' },
     { name: 'Leadership', path: '/core-team' },
     { name: 'About Us', path: '/about-us' },
-    { name: 'Gallery', path: '/gallery' },
     { name: 'Awards', path: '/awards' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -20,15 +19,9 @@ const Footer = () => {
     'MOHR',
     'MEZERA',
     'Dr Sheesha',
-    'The Black Perl'
+    'The Black Pearl'
   ];
 
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  ];
 
   return (
     <footer className="bg-gradient-subtle border-t border-border">
@@ -51,7 +44,7 @@ const Footer = () => {
               </p>
               
               {/* Social Links */}
-              <div className="flex space-x-2 sm:space-x-3 md:space-x-4">
+              {/* <div className="flex space-x-2 sm:space-x-3 md:space-x-4">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -64,7 +57,7 @@ const Footer = () => {
                     <social.icon size={20} className="hidden md:block" />
                   </a>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             {/* Quick Links */}
