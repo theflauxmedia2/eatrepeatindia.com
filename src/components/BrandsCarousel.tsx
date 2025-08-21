@@ -16,7 +16,7 @@ const brandsData = [
   {
     id: 'macaw',
     name: 'MACAW',
-    image: '/hero_slider/5.png',
+    image: '/hero_slider/5.webp',
     logo: '/brands/macaw.png',
     address: 'Tropical Gardens Plaza',
     description: 'Vibrant flavors inspired by exotic cuisines'

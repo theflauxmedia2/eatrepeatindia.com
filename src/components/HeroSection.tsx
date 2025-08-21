@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   // Build, preload, and filter valid slide sources
   useEffect(() => {
-    const allSlides = Array.from({ length: 9 }, (_, index) => `/hero_slider/${index + 1}.png`);
+    const allSlides = Array.from({ length: 9 }, (_, index) => `/hero_slider/${index + 1}.webp`);
     let isCancelled = false;
 
     const preload = (src: string) =>
@@ -54,21 +54,113 @@ const HeroSection = () => {
     <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] overflow-hidden">
       {/* Image Slider */}
       <div className="absolute inset-0">
-        {slides.map((imageSrc, index) => (
-          <div
-            key={imageSrc}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={imageSrc}
-              alt={`Hero ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-            {/* <div className="absolute inset-0 bg-gradient-overlay"></div> */}
-          </div>
-        ))}
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            0 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/1.webp"
+            alt="Hero 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            1 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/2.webp"
+            alt="Hero 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            2 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/3.webp"
+            alt="Hero 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            3 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/4.webp"
+            alt="Hero 4"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            4 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/5.webp"
+            alt="Hero 5"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            5 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/6.webp"
+            alt="Hero 6"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            6 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/7.webp"
+            alt="Hero 7"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            7 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/8.webp"
+            alt="Hero 8"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            8 === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src="/hero_slider/9.webp"
+            alt="Hero 9"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
 
       {/* Minimal Word Overlay - Bottom Left */}
@@ -99,16 +191,69 @@ const HeroSection = () => {
 
       {/* Slide Indicators */}
       <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-1.5 sm:space-x-2 md:space-x-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-              index === currentSlide ? 'bg-white' : 'bg-white/50'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+        <button
+          onClick={() => setCurrentSlide(0)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            0 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 1"
+        />
+        <button
+          onClick={() => setCurrentSlide(1)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            1 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 2"
+        />
+        <button
+          onClick={() => setCurrentSlide(2)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            2 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 3"
+        />
+        <button
+          onClick={() => setCurrentSlide(3)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            3 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 4"
+        />
+        <button
+          onClick={() => setCurrentSlide(4)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            4 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 5"
+        />
+        <button
+          onClick={() => setCurrentSlide(5)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            5 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 6"
+        />
+        <button
+          onClick={() => setCurrentSlide(6)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            6 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 7"
+        />
+        <button
+          onClick={() => setCurrentSlide(7)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            7 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 8"
+        />
+        <button
+          onClick={() => setCurrentSlide(8)}
+          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
+            8 === currentSlide ? 'bg-white' : 'bg-white/50'
+          }`}
+          aria-label="Go to slide 9"
+        />
       </div>
     </section>
   );

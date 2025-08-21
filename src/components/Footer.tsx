@@ -13,11 +13,11 @@ const Footer = () => {
   ];
 
   const brandLinks = [
-    'STORIES',
-    'MACAW', 
-    'MOAI',
-    'MOHR',
-    'MEZERA',
+    'Stories',
+    'Macaw', 
+    'Moai',
+    'Mohr',
+    'Mezera',
     'Dr Sheesha',
     'The Black Pearl'
   ];

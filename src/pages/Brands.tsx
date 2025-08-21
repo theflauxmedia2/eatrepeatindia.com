@@ -90,8 +90,8 @@ const Brands = () => {
       '/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.png'
     ],
     macaw: [
-      '/hero_slider/4.png',
-      '/hero_slider/5.png',
+      '/hero_slider/4.webp',
+      '/hero_slider/5.webp',
       '/lovable-uploads/160747a9-f9b5-4810-bbd3-bb3fefe35b3a.png'
     ],
     moai: [
@@ -99,7 +99,7 @@ const Brands = () => {
       '/moai/2.jpg',
       '/lovable-uploads/1e3842c9-cdaa-4eaf-b8c9-9e32600b74cc.png',
       'moai/3.jpg',
-      'hero_slider/7.png'
+      'hero_slider/7.webp'
     ],
     'stories-2-0': [
       '/2.0/1.webp',
@@ -121,7 +121,7 @@ const Brands = () => {
     ],
     'stories-brewery-kitchen': [
       '/lovable-uploads/75de3188-a5b4-4a9c-a48e-1d039e16b05a.png',
-      '/hero_slider/3.png'
+      '/hero_slider/3.webp'
     ],
     'stories-bar-kitchen': [
       '/lovable-uploads/0c76eb70-683b-4d78-9bb3-6337100b1fe6.png',

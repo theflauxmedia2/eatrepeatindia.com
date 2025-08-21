@@ -20,7 +20,7 @@ const GalleryPreview = () => {
     },
     {
       id: 4,
-      src: "/hero_slider/4.png",
+      src: "/hero_slider/4.webp",
       alt: "Ambiance"
     },
     {
@@ -30,7 +30,7 @@ const GalleryPreview = () => {
     },
     {
       id: 6,
-      src: "/hero_slider/9.png",
+      src: "/hero_slider/9.webp",
       alt: "Macaw"
     },
     {
