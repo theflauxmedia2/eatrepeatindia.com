@@ -11,6 +11,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     subject: '',
     message: ''
   });
@@ -26,12 +27,13 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, subject, message } = formData;
+    const { name, email, phone, subject, message } = formData;
     const mailSubject = encodeURIComponent(subject || `Message from ${name}`);
     const mailBody = encodeURIComponent(
       `Hello Eat Repeat Team,\n\n` +
       `Name: ${name}\n` +
       `Email: ${email}\n` +
+      (phone ? `Phone: ${phone}\n` : '') +
       (subject ? `Subject: ${subject}\n` : '') +
       `\nMessage:\n${message}\n\n` +
       `— Sent via eatrepeatindia.com`
@@ -98,10 +100,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-display text-base sm:text-lg md:text-xl font-semibold text-foreground mb-1 sm:mb-2">Email Us</h3>
                     <a 
-                      href="mailto:marketingeatrepeatindia@gmail.com"
+                      href="mailto:marketing@eatrepeatindia.com "
                       className="font-body text-xs sm:text-sm md:text-base text-muted-foreground hover:text-primary transition-smooth"
                     >
-                      marketingeatrepeatindia@gmail.com
+                      marketing@eatrepeatindia.com 
                     </a>
                   </div>
                 </div>
@@ -173,6 +175,21 @@ const Contact = () => {
                       placeholder="your.email@example.com"
                     />
                   </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="block font-body font-medium text-foreground mb-1.5 sm:mb-2">
+                    Phone Number
+                  </label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full"
+                    placeholder="+91 1234567890"
+                  />
                 </div>
                 
                 <div>

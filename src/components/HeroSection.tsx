@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   // Build, preload, and filter valid slide sources
   useEffect(() => {
-    const allSlides = Array.from({ length: 9 }, (_, index) => `/hero_slider/${index + 1}.webp`);
+    const allSlides = Array.from({ length: 8 }, (_, index) => `/hero_slider/${index + 1}.webp`);
     let isCancelled = false;
 
     const preload = (src: string) =>

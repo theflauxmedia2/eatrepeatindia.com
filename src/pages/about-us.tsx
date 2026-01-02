@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -174,9 +175,11 @@ const AboutUs = () => {
                 we'd love to hear from you.
               </p>
             </div>
-            <Button className="btn-luxury text-lg px-10 py-4 font-body">
-              Start the Conversation
-            </Button>
+            <Link to="/contact">
+              <Button className="btn-luxury text-lg px-10 py-4 font-body">
+                Start the Conversation
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

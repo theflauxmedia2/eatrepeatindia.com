@@ -6,7 +6,10 @@ import { Dialog, DialogTrigger, DialogContent } from '@/components/ui/dialog';
 const Awards = () => {
   const awardImages = [
     '/awards/award1.png',
-    '/awards/award2.png'
+    '/awards/award2.png',
+    '/awards/award3.webp',
+    '/awards/award4.webp',
+    '/awards/award5.webp'
   ];
 
   return (

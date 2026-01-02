@@ -29,14 +29,14 @@ const brandsData = [
     category: 'Casual Dining'
   },
   // New current brand
-  {
-    id: 'stories-2-0',
-    name: 'Stories 2.0',
-    image: '/hero_slider/5.png',
-    logo: '/brands/st2lg.png',
-    description: 'Next chapter in experiential dining with elevated storytelling',
-    category: 'Experiential Dining'
-  },
+  // {
+  //   id: 'stories-2-0',
+  //   name: 'Stories 2.0',
+  //   image: '/hero_slider/5.png',
+  //   logo: '/brands/st2lg.png',
+  //   description: 'Next chapter in experiential dining with elevated storytelling',
+  //   category: 'Experiential Dining'
+  // },
   {
     id: 'dr-sheesha',
     name: 'Dr Sheesha',
@@ -66,7 +66,7 @@ const brandsData = [
     name: 'The Black Pearl',
     image: '/lovable-uploads/tbp1.png',
     logo: '/brands/tbp.png',
-    description: 'Mysterious and sophisticated cocktail experience',
+    description: 'Premier pirate-themed barbecue restaurant offering a Caribbean-style dining experience with immersive decor & authentic pirate vibes.',
     category: 'Cocktail Bar'
   }
 ];
@@ -216,7 +216,7 @@ const Brands = () => {
             {visibleBrands.map((brand) => (
               <div
                 key={brand.id}
-                className="group hover-lift transition-elegant rounded-2xl shadow-elegant overflow-hidden group-hover:shadow-hover bg-[#E07646]"
+                className="group hover-lift transition-elegant rounded-2xl shadow-elegant overflow-hidden group-hover:shadow-hover bg-[#E07646] flex flex-col"
               >
                 <div className="h-full flex flex-col">
                   {/* Image */}
@@ -231,7 +231,7 @@ const Brands = () => {
                   {/* Content */}
                   <div className="p-4 sm:p-6 flex-1 flex flex-col text-white">
                     {/* Brand Logo (brand-specific sizing) */}
-                    <div className="mb-4 sm:mb-6">
+                    <div className="mb-4 sm:mb-6 min-h-[80px] sm:min-h-[96px] flex items-center">
                       <div className={`${getLogoContainerClasses(brand.id)} flex items-center justify-start`}>
                         <img
                           src={brand.logo}
@@ -240,7 +240,7 @@ const Brands = () => {
                         />
                       </div>
                     </div>
-                    <p className="font-body text-sm sm:text-base text-white/90 leading-relaxed flex-1">
+                    <p className="font-body text-sm sm:text-base text-white/90 leading-relaxed min-h-[60px] sm:min-h-[72px] flex items-start">
                       {brand.description}
                     </p>
                   </div>

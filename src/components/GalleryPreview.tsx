@@ -30,7 +30,7 @@ const GalleryPreview = () => {
     },
     {
       id: 6,
-      src: "/hero_slider/9.webp",
+      src: "/lovable-uploads/160747a9-f9b5-4810-bbd3-bb3fefe35b3a.png",
       alt: "Macaw"
     },
     {
