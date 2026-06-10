@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Seo from '@/components/Seo';
+import Reveal from '@/components/Reveal';
 
 const CoreTeam = () => {
   const teamMembers = [
@@ -51,7 +53,7 @@ const CoreTeam = () => {
     {
       name: "Dhiraj Kumar",
       designation: "Director, Strategy",
-      image: "/team/dhiraj.png",
+      image: "/team/dhiraj.webp",
       isCEO: false,
     }
   ];
@@ -61,12 +63,30 @@ const CoreTeam = () => {
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
+      <Seo
+        title="Leadership Team"
+        description="Meet the leadership behind Eat Repeat — Chairman & CEO Nerall Bakhai and the directors driving operations, finance, purchase, infrastructure and strategy across our F&B brands."
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Eat Repeat',
+            url: 'https://www.eatrepeatindia.com/',
+            employee: teamMembers.map((m) => ({
+              '@type': 'Person',
+              name: m.name,
+              jobTitle: m.designation,
+            })),
+          },
+        ]}
+      />
       <Navbar />
       
       {/* Hero Section */}
       <section className="pt-20 pb-16 sm:pt-24 sm:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <p className="eyebrow justify-center mb-5 animate-fade-in">Leadership</p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               Meet The <span className="font-display-italic text-primary">Team</span>
             </h1>
@@ -127,10 +147,10 @@ const CoreTeam = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
               {directors.map((director, index) => (
-                <div 
+                <Reveal
                   key={index}
-                  className="text-center group animate-slide-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  delay={(index % 3) * 100}
+                  className="text-center group"
                 >
                   <div className="inline-block">
                     <div className="relative">
@@ -158,7 +178,7 @@ const CoreTeam = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

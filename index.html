@@ -8,6 +8,7 @@
     <meta name="author" content="Eat Repeat" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="/hero_slider/1.webp" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
@@ -22,13 +23,13 @@
     <meta property="og:title" content="Eat Repeat - Crafting Memorable Food Experiences" />
     <meta property="og:description" content="Eat Repeat nurtures vibrant food brands built to be loved and remembered. From warm local cafés to concept-driven cloud kitchens." />
     <meta property="og:url" content="https://www.eatrepeatindia.com/" />
-    <meta property="og:image" content="https://www.eatrepeatindia.com/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.png" />
+    <meta property="og:image" content="https://www.eatrepeatindia.com/og-image.jpg" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Eat Repeat - Crafting Memorable Food Experiences" />
     <meta name="twitter:description" content="Eat Repeat nurtures vibrant food brands built to be loved and remembered. From warm local cafés to concept-driven cloud kitchens." />
-    <meta name="twitter:image" content="https://www.eatrepeatindia.com/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.png" />
+    <meta name="twitter:image" content="https://www.eatrepeatindia.com/og-image.jpg" />
 
     <!-- JSON-LD Organization -->
     <script type="application/ld+json">
@@ -36,18 +37,31 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Eat Repeat",
+        "alternateName": "Eat Repeat India",
+        "description": "Bengaluru-based hospitality group nurturing vibrant food brands — restaurants, breweries and lounges built to be loved and remembered.",
         "url": "https://www.eatrepeatindia.com/",
         "logo": "https://www.eatrepeatindia.com/lovable-uploads/bd9a7918-b91d-45a2-a95c-cb3547248741.png",
-        "sameAs": [
-          "https://www.instagram.com/",
-          "https://www.facebook.com/",
-          "https://www.linkedin.com/"
-        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "LIC Colony, 17/17, 24th Main Rd, TMC Layout, 1st Phase, J. P. Nagar",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "postalCode": "560078",
+          "addressCountry": "IN"
+        },
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
           "email": "marketingeatrepeatindia@gmail.com"
-        }
+        },
+        "brand": [
+          { "@type": "Brand", "name": "Stories Bar & Kitchen" },
+          { "@type": "Brand", "name": "Stories Brewery & Kitchen" },
+          { "@type": "Brand", "name": "Macaw" },
+          { "@type": "Brand", "name": "Moai" },
+          { "@type": "Brand", "name": "Dr Sheesha" },
+          { "@type": "Brand", "name": "The Black Pearl" }
+        ]
       }
     </script>
   </head>

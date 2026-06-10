@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import Reveal from '@/components/Reveal';
 
 const CoreTeamPreview = () => {
   const featuredMembers = [
@@ -45,7 +46,7 @@ const CoreTeamPreview = () => {
     {
       name: "Dhiraj Kumar",
       designation: "Director, Strategy",
-      image: "/team/dhiraj.png",
+      image: "/team/dhiraj.webp",
       isCEO: false
     }
   ];
@@ -101,14 +102,15 @@ const CoreTeamPreview = () => {
   return (
     <section className="py-10 sm:py-14 lg:py-20 bg-gradient-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
+          <p className="eyebrow justify-center mb-4">The People</p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
             Our <span className="font-display-italic text-primary">Leadership</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Meet the minds behind EatRepeat's growth and innovation.
           </p>
-        </div>
+        </Reveal>
 
         <div className="relative mb-12">
           <div className="overflow-x-hidden overflow-y-visible px-2 pt-3 sm:pt-5">
@@ -137,6 +139,8 @@ const CoreTeamPreview = () => {
                           <img
                             src={member.image}
                             alt={member.name}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover"
                             style={{ objectPosition: (member as any).objectPosition || 'center' }}
                           />

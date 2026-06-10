@@ -7,10 +7,23 @@ import CoreTeamPreview from '@/components/CoreTeamPreview';
 import GalleryPreview from '@/components/GalleryPreview';
 import BrandsCarousel from '@/components/BrandsCarousel';
 import Footer from '@/components/Footer';
+import Seo from '@/components/Seo';
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Eat Repeat – Crafting Memorable Food Experiences in Bengaluru"
+        description="Eat Repeat is a Bengaluru-based hospitality group nurturing vibrant food brands — Stories, Macaw, Moai, Dr Sheesha, The Black Pearl and more. Restaurants, breweries and lounges built to be loved and remembered."
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Eat Repeat',
+            url: 'https://www.eatrepeatindia.com/',
+          },
+        ]}
+      />
       <Navbar />
       <HeroSection />
       <BrandsMarquee />

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Seo from '@/components/Seo';
+import Reveal from '@/components/Reveal';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -44,11 +46,24 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Contact Us"
+        description="Get in touch with Eat Repeat for partnerships, collaborations and conversations. Visit us in J. P. Nagar, Bengaluru, or write to us — we'd love to hear from you."
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'ContactPage',
+            name: 'Contact Eat Repeat',
+            url: 'https://www.eatrepeatindia.com/contact',
+          },
+        ]}
+      />
       <Navbar />
       
       {/* Hero Section */}
       <section className="pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 md:pb-16 bg-gradient-subtle">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="eyebrow justify-center mb-5 animate-fade-in">Say Hello</p>
           <h1 className="font-display-italic text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8 animate-fade-in">
             Let's Connect
           </h1>
@@ -64,7 +79,7 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
             
             {/* Contact Information */}
-            <div className="space-y-6 sm:space-y-8 md:space-y-12">
+            <Reveal className="space-y-6 sm:space-y-8 md:space-y-12">
               <div>
                 <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">
                   Get in <span className="font-display-italic text-primary">Touch</span>
@@ -134,10 +149,10 @@ const Contact = () => {
                   benefit from our expertise and resources, let's talk.
                 </p>
               </div>
-            </div>
+            </Reveal>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-3xl shadow-luxury p-4 sm:p-6 md:p-8 lg:p-12">
+            <Reveal delay={120} className="bg-white rounded-3xl shadow-luxury p-4 sm:p-6 md:p-8 lg:p-12">
               <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-6 sm:mb-8">
                 Send us a Message
               </h3>
@@ -229,7 +244,7 @@ const Contact = () => {
                   Send Message
                 </Button>
               </form>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

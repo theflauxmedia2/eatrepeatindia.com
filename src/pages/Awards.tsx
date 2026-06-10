@@ -1,12 +1,14 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Seo from '@/components/Seo';
+import Reveal from '@/components/Reveal';
 import { Dialog, DialogTrigger, DialogContent } from '@/components/ui/dialog';
 
 const Awards = () => {
   const awardImages = [
-    '/awards/award1.png',
-    '/awards/award2.png',
+    '/awards/award1.webp',
+    '/awards/award2.webp',
     '/awards/award3.webp',
     '/awards/award4.webp',
     '/awards/award5.webp'
@@ -14,12 +16,17 @@ const Awards = () => {
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
+      <Seo
+        title="Awards & Recognitions"
+        description="Awards and recognitions earned by Eat Repeat's restaurants and lounges — a testament to our commitment to hospitality, innovation and guest experience across Bengaluru."
+      />
       <Navbar />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 sm:pt-24 sm:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <p className="eyebrow justify-center mb-5 animate-fade-in">Recognition</p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               Our <span className="font-display-italic text-primary">Awards</span> & Recognitions
             </h1>
@@ -35,14 +42,16 @@ const Awards = () => {
               <Dialog key={index}>
                 <DialogTrigger asChild>
                   <button
-                    className="group relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-elegant hover-lift transition-all duration-300 animate-slide-up focus:outline-none"
-                    style={{ animationDelay: `${index * 0.05}s` }}
+                    className="group relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-elegant hover-lift transition-all duration-300 animate-slide-up focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    style={{ animationDelay: `${index * 0.08}s` }}
                     aria-label={`View Award ${index + 1}`}
                   >
                     <div className="aspect-[4/5] w-full overflow-hidden">
                       <img
                         src={src}
                         alt={`Award ${index + 1}`}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.03] cursor-zoom-in"
                       />
                     </div>

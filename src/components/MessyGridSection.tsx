@@ -1,19 +1,20 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Reveal from '@/components/Reveal';
 
 const MessyGridSection = () => {
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-subtle">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 bg-gradient-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Single Clean Image */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
+          <Reveal className="lg:col-span-7 order-2 lg:order-1">
             <div className="relative group">
-              <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-elegant hover-lift transition-all duration-300 ease-out">
+              <div className="img-frame relative rounded-xl sm:rounded-2xl overflow-hidden shadow-luxury">
                 <img 
                   src="/oth/main.jpg" 
-                  alt="Modern restaurant interior"
+                  alt="Eat Repeat restaurant interior in Bengaluru"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                 />
               </div>
@@ -22,11 +23,12 @@ const MessyGridSection = () => {
               <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 bg-gradient-hero rounded-full opacity-20 blur-xl"></div>
               <div className="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 bg-accent/20 rounded-full opacity-30 blur-2xl"></div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Content */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-6 md:space-y-8 animate-slide-up order-1 lg:order-2">
+          <Reveal delay={120} className="lg:col-span-5 space-y-4 sm:space-y-6 md:space-y-8 order-1 lg:order-2">
             <div>
+              <p className="eyebrow mb-4">Our Story</p>
               <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 md:mb-6 leading-tight">
                 Building brands with 
                 <span className="font-display-italic text-primary"> stories, soul, </span>
@@ -48,7 +50,7 @@ const MessyGridSection = () => {
               </div>
             </div>
 
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

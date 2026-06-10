@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, Linkedin, Mail, MapPin } from 'lucide-react';
+import FooterCredits from './FooterCredits';
 
 const Footer = () => {
   const quickLinks = [
@@ -144,46 +145,13 @@ const Footer = () => {
             <p className="font-body text-xs sm:text-sm text-muted-foreground text-center md:text-left">
               © {new Date().getFullYear()} Eat Repeat. All rights reserved. Crafted with passion for exceptional dining experiences.
             </p>
-            <div className="flex space-x-3 sm:space-x-4 md:space-x-6">
-              <Link 
-                to="/privacy" 
-                className="font-body text-muted-foreground hover:text-primary transition-smooth text-xs sm:text-sm"
-              >
-                Privacy Policy
-              </Link>
-              <Link 
-                to="/terms" 
-                className="font-body text-muted-foreground hover:text-primary transition-smooth text-xs sm:text-sm"
-              >
-                Terms of Service
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Credits Bar */}
-      <div className="bg-[#000000]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <img
-              src="/brands/flauxmedia.png"
-              alt="TheFlauxMedia Logo"
-              className="h-6 sm:h-7 w-auto invert"
-            />
-            <p className="font-body text-xs sm:text-sm text-white">
-              Website designed and developed by{' '}
-              <a
-                href="https://theflauxmedia.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-4 decoration-white"
-              >
-                TheFlauxMedia
-              </a>
+            <p className="font-body text-xs sm:text-sm text-muted-foreground">
+              Bengaluru, India
             </p>
           </div>
         </div>
       </div>
+      <FooterCredits />
     </footer>
   );
 };

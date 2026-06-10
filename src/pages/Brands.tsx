@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Seo from '@/components/Seo';
+import Reveal from '@/components/Reveal';
 
 const brandsData = [
   {
     id: 'stories',
     name: 'STORIES',
-    image: '/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.png',
+    image: '/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.webp',
     logo: '/brands/stdb.avif',
     description: 'Narrative dining where every dish tells a story',
     category: 'Fine Dining'
@@ -15,7 +17,7 @@ const brandsData = [
   {
     id: 'macaw',
     name: 'MACAW',
-    image: '/lovable-uploads/160747a9-f9b5-4810-bbd3-bb3fefe35b3a.png',
+    image: '/lovable-uploads/160747a9-f9b5-4810-bbd3-bb3fefe35b3a.webp',
     logo: '/brands/macaw.png',
     description: 'Vibrant flavors inspired by exotic cuisines',
     category: 'Bar and Kitchen'
@@ -23,7 +25,7 @@ const brandsData = [
   {
     id: 'moai',
     name: 'MOAI',
-    image: '/lovable-uploads/361129d3-46c0-4f9a-96ca-8bb5f84214bc.png',
+    image: '/lovable-uploads/361129d3-46c0-4f9a-96ca-8bb5f84214bc.webp',
     logo: '/brands/moai.png',
     description: 'Ancient wisdom meets modern culinary artistry',
     category: 'Casual Dining'
@@ -40,7 +42,7 @@ const brandsData = [
   {
     id: 'dr-sheesha',
     name: 'Dr Sheesha',
-    image: '/lovable-uploads/8b3ee734-2320-4b21-adfe-da2d82ec54ed.png',
+    image: '/lovable-uploads/8b3ee734-2320-4b21-adfe-da2d82ec54ed.webp',
     logo: '/brands/drsheesha.png',
     description: 'Premium sheesha lounge with global influences',
     category: 'Lounge'
@@ -48,7 +50,7 @@ const brandsData = [
   {
     id: 'stories-brewery-kitchen',
     name: 'Stories Brewery & Kitchen',
-    image: '/hero_slider/6.png',
+    image: '/hero_slider/6.webp',
     logo: '/brands/stbr.png',
     description: 'Craft brews paired with hearty, modern kitchen favorites.',
     category: 'Brewery & Kitchen'
@@ -56,7 +58,7 @@ const brandsData = [
   {
     id: 'stories-bar-kitchen',
     name: 'Stories Bar & Kitchen',
-    image: '/hero_slider/3.png',
+    image: '/hero_slider/3.webp',
     logo: '/brands/stbar.png',
     description: 'Vibrant bar culture with a kitchen that celebrates global flavors.',
     category: 'Bar & Kitchen'
@@ -64,7 +66,7 @@ const brandsData = [
   {
     id: 'the-black-pearl',
     name: 'The Black Pearl',
-    image: '/lovable-uploads/tbp1.png',
+    image: '/lovable-uploads/tbp1.webp',
     logo: '/brands/tbp.png',
     description: 'Premier pirate-themed barbecue restaurant offering a Caribbean-style dining experience with immersive decor & authentic pirate vibes.',
     category: 'Cocktail Bar'
@@ -83,23 +85,23 @@ const Brands = () => {
 
   const brandImages: Record<string, string[]> = {
     stories: [
-      // '/lovable-uploads/1a870a73-de94-4bfe-8493-9d3702b1ede3.png',
-      // '/lovable-uploads/0c76eb70-683b-4d78-9bb3-6337100b1fe6.png',
-      '/lovable-uploads/5304796f-4545-49f9-92b3-8dfd449af76f.png',
-      '/lovable-uploads/d922890b-5a60-4130-a9cc-85a43046bbbf.png',
-      '/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.png'
+      // '/lovable-uploads/1a870a73-de94-4bfe-8493-9d3702b1ede3.webp',
+      // '/lovable-uploads/0c76eb70-683b-4d78-9bb3-6337100b1fe6.webp',
+      '/lovable-uploads/5304796f-4545-49f9-92b3-8dfd449af76f.webp',
+      '/lovable-uploads/d922890b-5a60-4130-a9cc-85a43046bbbf.webp',
+      '/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.webp'
     ],
     macaw: [
       '/hero_slider/4.webp',
       '/hero_slider/5.webp',
-      '/lovable-uploads/160747a9-f9b5-4810-bbd3-bb3fefe35b3a.png'
+      '/lovable-uploads/160747a9-f9b5-4810-bbd3-bb3fefe35b3a.webp'
     ],
     moai: [
       '/moai/1.jpg',
       '/moai/2.jpg',
-      '/lovable-uploads/1e3842c9-cdaa-4eaf-b8c9-9e32600b74cc.png',
-      'moai/3.jpg',
-      'hero_slider/7.webp'
+      '/lovable-uploads/1e3842c9-cdaa-4eaf-b8c9-9e32600b74cc.webp',
+      '/moai/3.jpg',
+      '/hero_slider/7.webp'
     ],
     'stories-2-0': [
       '/2.0/1.webp',
@@ -120,11 +122,11 @@ const Brands = () => {
       '/tbc/3.jpg'
     ],
     'stories-brewery-kitchen': [
-      '/lovable-uploads/75de3188-a5b4-4a9c-a48e-1d039e16b05a.png',
+      '/lovable-uploads/75de3188-a5b4-4a9c-a48e-1d039e16b05a.webp',
       '/hero_slider/3.webp'
     ],
     'stories-bar-kitchen': [
-      '/lovable-uploads/0c76eb70-683b-4d78-9bb3-6337100b1fe6.png',
+      '/lovable-uploads/0c76eb70-683b-4d78-9bb3-6337100b1fe6.webp',
       '/oth/stbr.webp'
     ]
   };
@@ -150,6 +152,8 @@ const Brands = () => {
             key={src}
             src={src}
             alt={alt}
+            loading={i === 0 ? undefined : 'lazy'}
+            decoding="async"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${i === idx ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
@@ -194,15 +198,37 @@ const Brands = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Our Brands"
+        description="Explore Eat Repeat's portfolio of dining brands in Bengaluru — Stories Bar & Kitchen, Stories Brewery & Kitchen, Macaw, Moai, Dr Sheesha and The Black Pearl. Fine dining, breweries, lounges and more."
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: 'Eat Repeat Brands',
+            itemListElement: visibleBrands.map((brand, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              item: {
+                '@type': 'Restaurant',
+                name: brand.name,
+                servesCuisine: brand.category,
+                parentOrganization: { '@type': 'Organization', name: 'Eat Repeat' },
+              },
+            })),
+          },
+        ]}
+      />
       <Navbar />
       
       {/* Hero Section */}
       <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display-italic text-4xl sm:text-5xl md:text-7xl font-bold text-foreground mb-4 sm:mb-6">
+          <p className="eyebrow justify-center mb-5 animate-fade-in">The Portfolio</p>
+          <h1 className="font-display-italic text-4xl sm:text-5xl md:text-7xl font-bold text-foreground mb-4 sm:mb-6 animate-fade-in">
             Our Brands
           </h1>
-          <p className="font-body text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-slide-up">
             Discover our diverse portfolio of dining experiences, each crafted with its own unique story and character.
           </p>
         </div>
@@ -213,9 +239,10 @@ const Brands = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Improved Grid Layout */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {visibleBrands.map((brand) => (
-              <div
+            {visibleBrands.map((brand, brandIndex) => (
+              <Reveal
                 key={brand.id}
+                delay={(brandIndex % 3) * 100}
                 className="group hover-lift transition-elegant rounded-2xl shadow-elegant overflow-hidden group-hover:shadow-hover bg-[#E07646] flex flex-col"
               >
                 <div className="h-full flex flex-col">
@@ -245,31 +272,36 @@ const Brands = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
           {/* Upcoming Projects */}
           {upcomingProjects.length > 0 && (
             <div className="mt-16 sm:mt-20 lg:mt-24">
-              <div className="text-center mb-8 sm:mb-12">
+              <Reveal className="text-center mb-8 sm:mb-12">
+                <p className="eyebrow justify-center mb-4">On The Horizon</p>
                 <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
                   Upcoming <span className="font-display-italic text-primary">Projects</span>
                 </h2>
                 <p className="font-body text-muted-foreground max-w-2xl mx-auto mt-3">
                   A glimpse into what we’re building next. Stay tuned.
                 </p>
-              </div>
+              </Reveal>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-                {upcomingProjects.map((brand) => (
-                  <div key={brand.id} className="rounded-2xl shadow-elegant bg-white p-6 sm:p-8 text-center">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#E07646]/10 text-[#E07646] inline-block mb-3">
+                {upcomingProjects.map((brand, i) => (
+                  <Reveal
+                    key={brand.id}
+                    delay={(i % 3) * 100}
+                    className="group rounded-2xl shadow-elegant bg-white p-6 sm:p-8 text-center border border-transparent hover:border-primary/20 hover:shadow-luxury transition-all duration-500"
+                  >
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#E07646]/10 text-[#E07646] inline-block mb-3 transition-colors duration-300 group-hover:bg-[#E07646] group-hover:text-white">
                       Coming Soon
                     </span>
                     <h3 className="font-display text-foreground text-xl sm:text-2xl font-semibold">
                       {brand.name}
                     </h3>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>

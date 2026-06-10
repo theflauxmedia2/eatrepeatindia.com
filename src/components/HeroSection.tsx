@@ -1,259 +1,125 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const SLIDES = Array.from({ length: 8 }, (_, index) => `/hero_slider/${index + 1}.webp`);
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [slides, setSlides] = useState<string[]>([]);
+  // Only the first slide is rendered immediately; the rest are loaded
+  // one-by-one in the background so the initial page load stays light.
+  const [loadedCount, setLoadedCount] = useState(1);
 
-  // Build, preload, and filter valid slide sources
   useEffect(() => {
-    const allSlides = Array.from({ length: 8 }, (_, index) => `/hero_slider/${index + 1}.webp`);
-    let isCancelled = false;
+    let cancelled = false;
 
-    const preload = (src: string) =>
-      new Promise<string | null>((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(src);
-        img.onerror = () => resolve(null);
-        img.src = src;
-      });
+    const loadNext = (index: number) => {
+      if (cancelled || index >= SLIDES.length) return;
+      const img = new Image();
+      const advance = () => {
+        if (cancelled) return;
+        setLoadedCount(index + 1);
+        loadNext(index + 1);
+      };
+      img.onload = advance;
+      img.onerror = advance;
+      img.src = SLIDES[index];
+    };
 
-    Promise.all(allSlides.map(preload)).then((results) => {
-      if (isCancelled) return;
-      const valid = results.filter(Boolean) as string[];
-      setSlides(valid);
-      setCurrentSlide(0);
-    });
-
+    loadNext(1);
     return () => {
-      isCancelled = true;
+      cancelled = true;
     };
   }, []);
 
-  // Words to display on the bottom-left for each slide (customize as needed)
-  const slideWords = [
-  ];
-
   useEffect(() => {
-    if (slides.length === 0) return;
+    if (loadedCount < 2) return;
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+      setCurrentSlide((prev) => (prev + 1) % loadedCount);
+    }, 6000);
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, [loadedCount]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentSlide((prev) => (prev + 1) % loadedCount);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 + loadedCount) % loadedCount);
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] overflow-hidden">
+    <section
+      className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] overflow-hidden bg-black"
+      aria-label="Eat Repeat highlights"
+    >
       {/* Image Slider */}
       <div className="absolute inset-0">
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            0 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/1.webp"
-            alt="Hero 1"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            1 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/2.webp"
-            alt="Hero 2"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            2 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/3.webp"
-            alt="Hero 3"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            3 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/4.webp"
-            alt="Hero 4"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            4 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/5.webp"
-            alt="Hero 5"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            5 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/6.webp"
-            alt="Hero 6"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            6 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/7.webp"
-            alt="Hero 7"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            7 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/8.webp"
-            alt="Hero 8"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            8 === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src="/hero_slider/9.webp"
-            alt="Hero 9"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        {SLIDES.slice(0, loadedCount).map((src, index) => (
+          <div
+            key={src}
+            className={`absolute inset-0 overflow-hidden transition-opacity duration-[1200ms] ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={src}
+              alt={`Eat Repeat restaurant ambience ${index + 1}`}
+              className={`w-full h-full object-cover ${
+                index === currentSlide ? 'animate-kenburns' : ''
+              }`}
+              decoding="async"
+            />
+          </div>
+        ))}
       </div>
 
-      {/* Minimal Word Overlay - Bottom Left */}
-      {slideWords[currentSlide] && (
-        <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 lg:bottom-16 left-4 sm:left-8 md:left-12 lg:left-16 z-20">
-          <div className="animate-fade-in">
-            <h1 className="font-display-italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-              {slideWords[currentSlide]}
-            </h1>
-          </div>
+      {/* Cinematic vignette */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/30 pointer-events-none" />
+
+      {/* Tagline */}
+      <div className="absolute inset-x-0 bottom-16 sm:bottom-20 md:bottom-24 z-10 px-6 sm:px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto animate-hero-tagline">
+          <p className="font-body text-[10px] sm:text-xs font-semibold uppercase tracking-[0.35em] text-white/80 mb-3 sm:mb-4">
+            Hospitality Group &middot; Bengaluru
+          </p>
+          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] max-w-3xl">
+            Crafting memorable
+            <span className="font-display-italic text-[#F2A67E]"> food experiences</span>
+          </h1>
         </div>
-      )}
+      </div>
 
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="hidden md:block absolute left-8 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-elegant"
+        className="hidden md:flex items-center justify-center absolute left-8 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-foreground transition-elegant"
+        aria-label="Previous slide"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={22} />
       </button>
-      
+
       <button
         onClick={nextSlide}
-        className="hidden md:block absolute right-8 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-elegant"
+        className="hidden md:flex items-center justify-center absolute right-8 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-foreground transition-elegant"
+        aria-label="Next slide"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={22} />
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-1.5 sm:space-x-2 md:space-x-3">
-        <button
-          onClick={() => setCurrentSlide(0)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            0 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 1"
-        />
-        <button
-          onClick={() => setCurrentSlide(1)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            1 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 2"
-        />
-        <button
-          onClick={() => setCurrentSlide(2)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            2 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 3"
-        />
-        <button
-          onClick={() => setCurrentSlide(3)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            3 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 4"
-        />
-        <button
-          onClick={() => setCurrentSlide(4)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            4 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 5"
-        />
-        <button
-          onClick={() => setCurrentSlide(5)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            5 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 6"
-        />
-        <button
-          onClick={() => setCurrentSlide(6)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            6 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 7"
-        />
-        <button
-          onClick={() => setCurrentSlide(7)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            7 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 8"
-        />
-        <button
-          onClick={() => setCurrentSlide(8)}
-          className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-elegant ${
-            8 === currentSlide ? 'bg-white' : 'bg-white/50'
-          }`}
-          aria-label="Go to slide 9"
-        />
+      <div className="absolute bottom-5 sm:bottom-7 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-2 sm:space-x-2.5">
+        {SLIDES.slice(0, loadedCount).map((src, index) => (
+          <button
+            key={src}
+            onClick={() => setCurrentSlide(index)}
+            className={`h-1 sm:h-1.5 rounded-full transition-all duration-500 ease-out ${
+              index === currentSlide
+                ? 'w-7 sm:w-9 bg-white'
+                : 'w-2.5 sm:w-3 bg-white/40 hover:bg-white/70'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

@@ -2,17 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Seo from '@/components/Seo';
+import Reveal from '@/components/Reveal';
 import { Button } from '@/components/ui/button';
 import { Heart, Users, Star, Lightbulb } from 'lucide-react';
 
 const AboutUs = () => {
   return (
     <div className="min-h-screen">
+      <Seo
+        title="About Us"
+        description="Eat Repeat builds food brands with stories, soul and community. Learn what we believe, the standards behind every brand we nurture, and how we partner with entrepreneurs and communities."
+      />
       <Navbar />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-subtle">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <p className="eyebrow justify-center mb-5 animate-fade-in">Who We Are</p>
           <h1 className="font-display-italic text-5xl md:text-7xl font-bold text-foreground mb-8 animate-fade-in">
             About Us
           </h1>
@@ -28,15 +35,15 @@ const AboutUs = () => {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           
           {/* What We Believe */}
-          <div className="mb-20 animate-fade-in">
-            <div className="text-center mb-16">
+          <div className="mb-20">
+            <Reveal className="text-center mb-16">
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 What We <span className="font-display-italic text-primary">Believe</span>
               </h2>
-            </div>
+            </Reveal>
             
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-8">
+              <Reveal className="space-y-8">
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p className="font-body">
                     Food is more than sustenance — it's culture, it's connection, it's the thread that weaves through our most precious moments. We believe that great brands aren't built on recipes alone, but on the stories they tell and the communities they create.
@@ -48,62 +55,54 @@ const AboutUs = () => {
                     Every brand under the Eat Repeat umbrella exists to enrich lives, not just serve meals. We curate experiences that stay with you — that make you want to come back, to bring others, to be part of something bigger than yourself.
                   </p>
                 </div>
-              </div>
+              </Reveal>
               
-              <div className="relative">
-                <img 
-                  src="/lovable-uploads/vision.JPG"
-                  alt="Our vision of dining"
-                  className="w-full h-96 object-cover rounded-2xl shadow-luxury"
-                />
+              <Reveal delay={120} className="relative">
+                <div className="img-frame rounded-2xl shadow-luxury overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/vision.JPG"
+                    alt="Our vision of dining"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-96 object-cover"
+                  />
+                </div>
                 <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-hero rounded-full opacity-20 blur-xl"></div>
-              </div>
+              </Reveal>
             </div>
           </div>
 
           {/* The Eat Repeat Standard */}
           <div className="mb-20">
-            <div className="text-center mb-16">
+            <Reveal className="text-center mb-16">
+              <p className="eyebrow justify-center mb-4">Our Principles</p>
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 The Eat Repeat <span className="font-display-italic text-primary">Standard</span>
               </h2>
               <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto">
                 Every brand we nurture, every experience we create, every investment we make is measured against these core principles.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center hover-lift p-8 bg-white rounded-2xl shadow-elegant">
-                <div className="w-16 h-16 bg-gradient-hero rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <Heart className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-4">Passion-Driven</h3>
-                <p className="font-body text-muted-foreground">Every concept must come from genuine passion and authentic purpose</p>
-              </div>
-              
-              <div className="text-center hover-lift p-8 bg-white rounded-2xl shadow-elegant">
-                <div className="w-16 h-16 bg-gradient-hero rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-4">Community-Focused</h3>
-                <p className="font-body text-muted-foreground">Building spaces where connections flourish and memories are made</p>
-              </div>
-              
-              <div className="text-center hover-lift p-8 bg-white rounded-2xl shadow-elegant">
-                <div className="w-16 h-16 bg-gradient-hero rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <Star className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-4">Excellence-Oriented</h3>
-                <p className="font-body text-muted-foreground">Uncompromising commitment to quality in every detail</p>
-              </div>
-              
-              <div className="text-center hover-lift p-8 bg-white rounded-2xl shadow-elegant">
-                <div className="w-16 h-16 bg-gradient-hero rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <Lightbulb className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-4">Innovation-Led</h3>
-                <p className="font-body text-muted-foreground">Constantly evolving while staying true to our core values</p>
-              </div>
+              {[
+                { icon: Heart, title: 'Passion-Driven', text: 'Every concept must come from genuine passion and authentic purpose' },
+                { icon: Users, title: 'Community-Focused', text: 'Building spaces where connections flourish and memories are made' },
+                { icon: Star, title: 'Excellence-Oriented', text: 'Uncompromising commitment to quality in every detail' },
+                { icon: Lightbulb, title: 'Innovation-Led', text: 'Constantly evolving while staying true to our core values' },
+              ].map((item, i) => (
+                <Reveal
+                  key={item.title}
+                  delay={i * 100}
+                  className="group text-center hover-lift p-8 bg-white rounded-2xl shadow-elegant border border-transparent hover:border-primary/15"
+                >
+                  <div className="w-16 h-16 bg-gradient-hero rounded-full mx-auto mb-6 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                    <item.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold text-foreground mb-4">{item.title}</h3>
+                  <p className="font-body text-muted-foreground">{item.text}</p>
+                </Reveal>
+              ))}
             </div>
           </div>
 

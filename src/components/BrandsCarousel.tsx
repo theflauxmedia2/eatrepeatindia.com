@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { useNavigate } from 'react-router-dom';
+import Reveal from '@/components/Reveal';
 
 // Mock data for brands - in a real app, this would come from an API
 const brandsData = [
   {
     id: 'stories',
     name: 'STORIES',
-    image: '/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.png',
+    image: '/lovable-uploads/224c4170-965c-416a-af28-1592e623c3af.webp',
     logo: '/brands/stbar.png',
     address: 'Downtown Heritage District',
     description: 'Narrative dining where every dish tells a story'
@@ -32,6 +34,7 @@ const brandsData = [
 ];
 
 const BrandsCarousel = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedBrandId, setSelectedBrandId] = useState<string | null>(null);
@@ -94,14 +97,15 @@ const BrandsCarousel = () => {
     <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-6 sm:mb-8 md:mb-12 animate-fade-in">
+        <Reveal className="text-center mb-6 sm:mb-8 md:mb-12">
+          <p className="eyebrow justify-center mb-4">The Portfolio</p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 md:mb-6">
             Our <span className="font-display-italic text-primary">Brands</span>
           </h2>
           <p className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Discover our diverse portfolio of dining experiences, each with its own unique character and culinary story.
           </p>
-        </div>
+        </Reveal>
 
         {/* Carousel Container */}
         <div className="relative">
@@ -112,6 +116,8 @@ const BrandsCarousel = () => {
               <img 
                 src={currentBrand.image}
                 alt={currentBrand.name}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Hover color overlay */}
@@ -164,6 +170,8 @@ const BrandsCarousel = () => {
                 <img 
                   src={brand.image}
                   alt={brand.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Hover color overlay */}
@@ -249,7 +257,7 @@ const BrandsCarousel = () => {
         <div className="text-center mt-6 sm:mt-8 md:mt-12">
           <Button 
             className="btn-elegant px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-body transition-none"
-            onClick={() => window.location.href = '/brands'}
+            onClick={() => navigate('/brands')}
           >
             View All Brands
             <span className="ml-2">→</span>
