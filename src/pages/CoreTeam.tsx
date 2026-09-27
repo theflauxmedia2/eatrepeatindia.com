@@ -7,8 +7,19 @@ import Footer from '@/components/Footer';
 import Seo from '@/components/Seo';
 import Reveal from '@/components/Reveal';
 
+type TeamMember = {
+  name: string;
+  designation: string;
+  image: string;
+  isCEO: boolean;
+  objectPosition?: string;
+  scale?: number;
+  offsetX?: number;
+  offsetY?: number;
+};
+
 const CoreTeam = () => {
-  const teamMembers = [
+  const teamMembers: TeamMember[] = [
     {
       name: "Nerall Bakhai",
       designation: "Chairman & CEO",
@@ -114,8 +125,8 @@ const CoreTeam = () => {
                         alt={ceo.name}
                         className="w-full h-full object-cover"
                         style={{
-                          objectPosition: (ceo as any).objectPosition || 'center',
-                          transform: `translateX(${(ceo as any).offsetX || 0}%) translateY(${(ceo as any).offsetY || 0}%) scale(${(ceo as any).scale || 1})`,
+                          objectPosition: ceo.objectPosition || 'center',
+                          transform: `translateX(${ceo.offsetX || 0}%) translateY(${ceo.offsetY || 0}%) scale(${ceo.scale || 1})`,
                           transformOrigin: 'center'
                         }}
                       />
@@ -161,8 +172,8 @@ const CoreTeam = () => {
                             alt={director.name}
                             className="w-full h-full object-cover"
                             style={{
-                              objectPosition: (director as any).objectPosition || 'center',
-                              transform: `translateX(${(director as any).offsetX || 0}%) translateY(${(director as any).offsetY || 0}%) scale(${(director as any).scale || 1})`,
+                              objectPosition: director.objectPosition || 'center',
+                              transform: `translateX(${director.offsetX || 0}%) translateY(${director.offsetY || 0}%) scale(${director.scale || 1})`,
                               transformOrigin: 'center'
                             }}
                           />

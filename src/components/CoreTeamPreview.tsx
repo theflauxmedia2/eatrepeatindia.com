@@ -4,8 +4,19 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
+type FeaturedMember = {
+  name: string;
+  designation: string;
+  image: string;
+  isCEO: boolean;
+  objectPosition?: string;
+  scale?: number;
+  offsetX?: number;
+  offsetY?: number;
+};
+
 const CoreTeamPreview = () => {
-  const featuredMembers = [
+  const featuredMembers: FeaturedMember[] = [
     {
       name: "Nerall Bakhai",
       designation: "Chairman & CEO",
@@ -142,7 +153,7 @@ const CoreTeamPreview = () => {
                             loading="lazy"
                             decoding="async"
                             className="w-full h-full object-cover"
-                            style={{ objectPosition: (member as any).objectPosition || 'center' }}
+                            style={{ objectPosition: member.objectPosition || 'center' }}
                           />
                         </div>
                       </div>

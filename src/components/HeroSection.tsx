@@ -57,7 +57,7 @@ const HeroSection = () => {
         {SLIDES.slice(0, loadedCount).map((src, index) => (
           <div
             key={src}
-            className={`absolute inset-0 overflow-hidden transition-opacity duration-[1200ms] ease-in-out ${
+            className={`absolute inset-0 overflow-hidden transition-opacity transition-duration-[1200ms] ease-in-out ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
