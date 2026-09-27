@@ -75,8 +75,8 @@ const CoreTeam = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle">
       <Seo
-        title="Leadership Team"
-        description="Meet the leadership behind Eat Repeat — Chairman & CEO Nerall Bakhai and the directors driving operations, finance, purchase, infrastructure and strategy across our F&B brands."
+        title="Leadership Team | Eat Repeat Hospitality, Bengaluru"
+        description="Meet the leadership behind Eat Repeat in Bengaluru — Chairman & CEO Nerall Bakhai and the directors of operations, finance, purchase, infrastructure and strategy."
         jsonLd={[
           {
             '@context': 'https://schema.org',

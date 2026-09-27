@@ -47,8 +47,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <Seo
-        title="Contact Us"
-        description="Get in touch with Eat Repeat for partnerships, collaborations and conversations. Visit us in J. P. Nagar, Bengaluru, or write to us — we'd love to hear from you."
+        title="Contact Us | Eat Repeat in J. P. Nagar, Bengaluru"
+        description="Contact Eat Repeat in J. P. Nagar, Bengaluru for partnerships and collaborations. Visit the office or write to us — we'd love to hear from you."
         jsonLd={[
           {
             '@context': 'https://schema.org',
@@ -115,10 +115,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-display text-base sm:text-lg md:text-xl font-semibold text-foreground mb-1 sm:mb-2">Email Us</h3>
                     <a 
-                      href="mailto:marketing@eatrepeatindia.com "
+                      href="mailto:marketing@eatrepeatindia.com"
                       className="font-body text-xs sm:text-sm md:text-base text-muted-foreground hover:text-primary transition-smooth"
                     >
-                      marketing@eatrepeatindia.com 
+                      marketing@eatrepeatindia.com
                     </a>
                   </div>
                 </div>

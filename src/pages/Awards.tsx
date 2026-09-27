@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Seo from '@/components/Seo';
 import Reveal from '@/components/Reveal';
-import { Dialog, DialogTrigger, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 const Awards = () => {
   const awardImages = [
@@ -17,8 +17,8 @@ const Awards = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle">
       <Seo
-        title="Awards & Recognitions"
-        description="Awards and recognitions earned by Eat Repeat's restaurants and lounges — a testament to our commitment to hospitality, innovation and guest experience across Bengaluru."
+        title="Awards & Recognitions | Eat Repeat in Bengaluru"
+        description="Awards and recognitions earned by Eat Repeat's restaurants and lounges in Bengaluru — a testament to our hospitality, innovation and guest experience."
       />
       <Navbar />
 
@@ -58,6 +58,7 @@ const Awards = () => {
                   </button>
                 </DialogTrigger>
                 <DialogContent className="max-w-5xl p-0 bg-transparent border-0 shadow-none">
+                  <DialogTitle className="sr-only">Award {index + 1}</DialogTitle>
                   <img
                     src={src}
                     alt={`Award ${index + 1} enlarged`}

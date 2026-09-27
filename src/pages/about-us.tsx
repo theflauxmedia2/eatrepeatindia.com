@@ -11,8 +11,8 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen">
       <Seo
-        title="About Us"
-        description="Eat Repeat builds food brands with stories, soul and community. Learn what we believe, the standards behind every brand we nurture, and how we partner with entrepreneurs and communities."
+        title="About Us | Eat Repeat Hospitality Group, Bengaluru"
+        description="Eat Repeat builds food brands with stories, soul and community in Bengaluru. What we believe, the standards behind each brand, and how we partner with entrepreneurs."
       />
       <Navbar />
       

@@ -68,6 +68,10 @@ const HeroSection = () => {
                 index === currentSlide ? 'animate-kenburns' : ''
               }`}
               decoding="async"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+              width={2560}
+              height={index === 5 ? 1920 : 1707}
             />
           </div>
         ))}

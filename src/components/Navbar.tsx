@@ -38,6 +38,8 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/bd9a7918-b91d-45a2-a95c-cb3547248741.png" 
               alt="Eat Repeat Logo" 
+              width={480}
+              height={301}
               className="h-8 sm:h-10 lg:h-12 w-auto"
             />
           </Link>

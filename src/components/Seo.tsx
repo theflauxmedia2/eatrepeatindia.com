@@ -42,8 +42,9 @@ const Seo = ({ title, description, image, jsonLd }: SeoProps) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const fullTitle = pathname === '/' ? title : `${title} | ${SITE_NAME}`;
-    const url = `${SITE_URL}${pathname === '/' ? '/' : pathname}`;
+    const path = pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
+    const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+    const url = `${SITE_URL}${path === "/" ? "/" : path}`;
     const ogImage = image
       ? image.startsWith('http')
         ? image
@@ -55,6 +56,7 @@ const Seo = ({ title, description, image, jsonLd }: SeoProps) => {
     upsertCanonical(url);
 
     upsertMeta('property', 'og:site_name', SITE_NAME);
+    upsertMeta('property', 'og:locale', 'en_IN');
     upsertMeta('property', 'og:type', 'website');
     upsertMeta('property', 'og:title', fullTitle);
     upsertMeta('property', 'og:description', description);

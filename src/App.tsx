@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Brands from "./pages/Brands";
 import AboutUs from "./pages/about-us";
@@ -15,14 +15,16 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+/** Render slash and no-slash URLs as the same page. Does not change the address bar. */
+const AppRoutes = () => {
+  const location = useLocation();
+  const pathname =
+    location.pathname.length > 1
+      ? location.pathname.replace(/\/+$/, "")
+      : location.pathname;
+
+  return (
+    <Routes location={{ ...location, pathname }}>
           <Route path="/" element={<Index />} />
           <Route path="/brands" element={<Brands />} />
           <Route path="/about-us" element={<AboutUs />} />
@@ -32,6 +34,17 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+  );
+};
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <ScrollToTop />
+        <AppRoutes />
         <FloatingActionButtons />
       </BrowserRouter>
     </TooltipProvider>

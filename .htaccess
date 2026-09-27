@@ -1,6 +1,16 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Real files (images, CSS, JS) keep their URLs.
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # /brands and /awards are asset folders and page routes.
+  # The folder would otherwise 301 to a slash URL and return 403.
+  RewriteRule ^brands/?$ /index.html [L]
+  RewriteRule ^awards/?$ /index.html [L]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

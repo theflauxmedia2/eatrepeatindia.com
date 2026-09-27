@@ -199,8 +199,8 @@ const Brands = () => {
   return (
     <div className="min-h-screen">
       <Seo
-        title="Our Brands"
-        description="Explore Eat Repeat's portfolio of dining brands in Bengaluru — Stories Bar & Kitchen, Stories Brewery & Kitchen, Macaw, Moai, Dr Sheesha and The Black Pearl. Fine dining, breweries, lounges and more."
+        title="Our Brands | Eat Repeat Restaurants in Bengaluru"
+        description="Explore Eat Repeat's dining brands in Bengaluru — Stories Bar & Kitchen, Stories Brewery & Kitchen, Macaw, Moai, Dr Sheesha and The Black Pearl."
         jsonLd={[
           {
             '@context': 'https://schema.org',

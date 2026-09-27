@@ -61,9 +61,9 @@ const brands = [
   },
   {
     id: 'black-perl',
-    name: 'The Black Perl',
+    name: 'The Black Pearl',
     logo: '/brands/tbp.png',
-    alt: 'The Black Perl Brand Logo',
+    alt: 'The Black Pearl Brand Logo',
     path: '/brands'
   },
   {
@@ -152,6 +152,7 @@ const BrandsMarquee = () => {
                 onClick={handleBrandClick}
                 role="button"
                 tabIndex={0}
+                aria-label={brand.alt}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
