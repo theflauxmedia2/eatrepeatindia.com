@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Environment files — never commit secrets. .env.example is the only exception.
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,3 +28,10 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Archives and backups (never commit these)
+*.tar.gz
+*.tgz
+*.zip
+*.rar
+*.7z
