@@ -1,9 +1,20 @@
+# Stop the server adding a trailing slash (/brands -> /brands/) when a page name matches a real folder.
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # One canonical host: send the bare domain to www so search engines index a single copy of each page.
+  RewriteCond %{HTTP_HOST} ^eatrepeatindia\.com$ [NC]
+  RewriteRule ^ https://www.eatrepeatindia.com%{REQUEST_URI} [R=301,L]
+
   RewriteRule ^index\.html$ - [L]
+  # WHY no "!-d" check: /brands and /awards are also real image folders (public/brands, public/awards).
+  # With "!-d" those page URLs hit the folder and returned 403 instead of loading the app.
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
 
